@@ -40,6 +40,6 @@ export class NavbarComponent implements OnInit {
   logOut() {
     localStorage.removeItem('token');
     this.alertify.message('You are logged out');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
   }
 }
