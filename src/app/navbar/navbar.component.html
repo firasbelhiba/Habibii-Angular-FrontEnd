@@ -12,15 +12,41 @@
       <a class="nav-link" routerLink="/messages">Messages</a>
     </li>
   </ul>
-  <div *ngIf="loggedIn()" class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle">Welcome {{username | titlecase}}</button>
-    <div class="dropdown-menu">
+
+  <!-- <div *ngIf="loggedIn()" class="dropdown" dropdown>
+    <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{username | titlecase}}</a>
+    <div class="dropdown-menu" *dropdownMenu>
       <a class="dropdown-item"><i class="fa fa-user"></i>Edit</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" (click)="logOut()"
         ><i class="fa fa-sign-out"></i>Logout</a
       >
     </div>
+  </div> -->
+
+  <div *ngIf="loggedIn()" class="btn-group" dropdown>
+    <button
+      id="button-basic"
+      dropdownToggle
+      type="button"
+      class="btn btn-primary dropdown-toggle"
+      aria-controls="dropdown-basic"
+    >
+      Welcome {{ username | titlecase }}<span class="caret"></span>
+    </button>
+    <ul
+      id="dropdown-basic"
+      *dropdownMenu
+      class="dropdown-menu"
+      role="menu"
+      aria-labelledby="button-basic"
+    >
+      <a class="dropdown-item"><i class="fa fa-user"></i>Edit</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" (click)="logOut()"
+        ><i class="fa fa-sign-out"></i>Logout</a
+      >
+    </ul>
   </div>
 
   <form
