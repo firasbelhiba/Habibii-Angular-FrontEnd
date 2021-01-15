@@ -1,0 +1,27 @@
+.img-thumbnail{
+  margin: 25px;
+  width: 85%;
+  height: 85%;
+}
+.card-body{
+  padding: 0 25px;
+}
+
+.card-footer{
+  padding: 10px 15px;
+  background-color: #f4f7c5;
+  opacity: 0.8;
+  border-top: none;
+}
+
+.btn_like{
+  background-color: #ea907a;
+}
+
+.btn_message{
+  background-color: #aacdbe;
+}
+
+.btn{
+  border-radius: 20px;
+}
