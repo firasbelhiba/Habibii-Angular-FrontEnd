@@ -17,6 +17,7 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthGuard } from './_guards/auth.guard';
+import { UserService } from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthGuard } from './_guards/auth.guard';
   providers: [
     AuthService,
     AlertifyService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
