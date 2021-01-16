@@ -1,30 +1,33 @@
 &nbsp;
 <div class="container mt-5">
   <div class="row">
+    <h1>{{user.knownAs}}'s Account</h1>
+  </div>
+  <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <img
           class="card-img-top img-thumbnail"
           style="border-radius: 10px"
-          src="{{ user?.photoUrl }}"
-          alt="{{ user?.knownAs }}"
+          src="{{ user.photoUrl }}"
+          alt="{{ user.knownAs }}"
         />
         <div class="card-body">
           <div>
             <strong>Location:</strong>
-            <p>{{ user?.city }},{{ user?.country }}</p>
+            <p>{{ user.city }},{{ user.country }}</p>
           </div>
           <div>
             <strong>Age:</strong>
-            <p>{{ user?.age }}</p>
+            <p>{{ user.age }}</p>
           </div>
           <div>
             <strong>Last Active:</strong>
-            <p>{{ user?.lastActive }}</p>
+            <p>{{ user.lastActive }}</p>
           </div>
           <div>
             <strong>Member since:</strong>
-            <p>{{ user?.created }}</p>
+            <p>{{ user.created }}</p>
           </div>
         </div>
       </div>
@@ -42,18 +45,21 @@
         <tabset class="member-tabset">
           <tab heading="About">
             <h4>Description</h4>
-            <p>{{ user?.introduction }}</p>
+            <p>{{ user.introduction }}</p>
             <h4>Looking For</h4>
-            <p>{{ user?.lookingFor }}</p>
+            <p>{{ user.lookingFor }}</p>
           </tab>
           <tab heading="Interests">
             <h4>Interests</h4>
-            <p>{{ user?.intrests }}</p>
+            <p>{{ user.intrests }}</p>
             <h4>Looking For</h4>
-            <p>{{ user?.lookingFor }}</p>
+            <p>{{ user.lookingFor }}</p>
           </tab>
           <tab heading="Photos">
             <h4>Photos will go here</h4>
+            <div class="gallery" *ngFor="let url of imageUrls">
+              <a tabindex="1"><img src="{{url}}"></a>
+                </div>
           </tab>
           <tab heading="Messages">
             <h4>Messages will go here</h4>

@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MemberDetailComponent implements OnInit {
   user: User;
+  imageUrls = [];
   constructor(
     private userService: UserService,
     private alertify: AlertifyService,
@@ -18,16 +19,14 @@ export class MemberDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadUser();
-  }
+    this.route.data.subscribe((data) => {
+      this.user = data['user'];
+    });
 
-  loadUser() {
-    this.userService
-      .getUser(+this.route.snapshot.params['id'])
-      .subscribe((userById:User) => {
-        this.user = userById;
-      }, error => {
-        this.alertify.error(error);
-      });
+    for (let i = 0; i < this.user?.photos.length; i++) {
+      this.imageUrls.push(this.user.photos[i].url);
+      console.log("voici la liste des urls ",this.imageUrls);
+    }
+    console.log('test', this.user.photos[0].url);
   }
 }

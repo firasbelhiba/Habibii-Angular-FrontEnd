@@ -22,6 +22,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+import { MemberListResolver } from './_resolvers/member-list.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -48,15 +50,21 @@ export function tokenGetter() {
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     JwtModule.forRoot({
-      config:{
+      config: {
         tokenGetter: tokenGetter,
         whitelistedDomains: ['localhost:5000'],
-        blacklistedRoutes:  ['localhost:5000/api/auth']
-
-      }
-    })
+        blacklistedRoutes: ['localhost:5000/api/auth'],
+      },
+    }),
   ],
-  providers: [AuthService, AlertifyService, AuthGuard, UserService],
+  providers: [
+    AuthService,
+    AlertifyService,
+    AuthGuard,
+    UserService,
+    MemberDetailResolver,
+    MemberListResolver
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
