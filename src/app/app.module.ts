@@ -5,6 +5,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,13 +18,14 @@ import { AlertifyService } from './_services/alertify.service';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -40,6 +42,7 @@ export function tokenGetter() {
     MemberListComponent,
     MemberCardComponent,
     MemberDetailComponent,
+    MemberEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ export function tokenGetter() {
     AuthGuard,
     UserService,
     MemberDetailResolver,
-    MemberListResolver
+    MemberListResolver,
+    MemberEditResolver
   ],
   bootstrap: [AppComponent],
 })
