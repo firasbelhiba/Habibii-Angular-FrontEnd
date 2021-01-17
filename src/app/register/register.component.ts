@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { AuthService } from '../_services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   model: any = {};
+  registerForm: FormGroup;
 
   constructor(private authService: AuthService) {}
 
