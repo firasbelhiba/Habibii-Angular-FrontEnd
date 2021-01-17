@@ -38,11 +38,18 @@ export class MemberEditComponent implements OnInit {
 
     this.userService
       .updateUser(this.authService.decodedToken.nameid, this.user)
-      .subscribe((response) => {
-        this.alertify.success('Profile updateed successfully');
-        this.editForm.reset(this.user);
-      }, error => {
-        this.alertify.error('an error has been occured');
-      });
+      .subscribe(
+        (response) => {
+          this.alertify.success('Profile updateed successfully');
+          this.editForm.reset(this.user);
+        },
+        (error) => {
+          this.alertify.error('an error has been occured');
+        }
+      );
+  }
+
+  updateMainPhoto(photoUrl) {
+    this.user.photoUrl = photoUrl;
   }
 }
