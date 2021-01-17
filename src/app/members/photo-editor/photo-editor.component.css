@@ -11,3 +11,11 @@ img.img-thumbnail {
 input[type=file]{
   color: transparent;
 }
+
+.btn-secondary{
+  background-color: #fbc687;
+}
+
+.btn-success{
+  background-color: #aacdbe;
+}

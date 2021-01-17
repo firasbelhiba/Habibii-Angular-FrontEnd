@@ -3,6 +3,8 @@ import { Photo } from '../../_models/photo';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../_services/auth.service';
+import { UserService } from '../../_services/user.service';
+import { AlertifyService } from '../../_services/alertify.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -12,11 +14,15 @@ import { AuthService } from '../../_services/auth.service';
 export class PhotoEditorComponent implements OnInit {
   @Input() photos: Photo[];
 
-  uploader: FileUploader;
-  hasBaseDropZoneOver = false;
-  baseUrl = environment.apiUrl;
+   uploader: FileUploader;
+   hasBaseDropZoneOver = false;
+   baseUrl = environment.apiUrl;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit(): void {
     this.initializeUploader();
@@ -53,10 +59,18 @@ export class PhotoEditorComponent implements OnInit {
           url: res.url,
           dateAdded: res.dateAdded,
           description: res.description,
-          isMain: res.isMain
+          isMain: res.isMain,
         };
         this.photos.push(photo);
       }
     };
-  }
+   }
+
+   setMainPhoto(photo: Photo){
+    this.userService.setMainPhoto(this.authService.decodedToken.nameid , photo.id).subscribe(() => {
+      this.alertify.success('Succedully set to main');
+    } , error => {
+      this.alertify.error(error);
+    });
+   }
 }
