@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   model: any = {};
   username: string;
+  photoUrl: string;
 
   constructor(
     public authService: AuthService,
@@ -20,6 +21,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.authService.decodedToken?.unique_name;
+    this.authService.currentPhotoUrl.subscribe(
+      (photoUrl) => (this.photoUrl = photoUrl)
+    );
   }
 
   login() {
@@ -27,7 +31,6 @@ export class NavbarComponent implements OnInit {
       (next) => {
         this.alertify.success('Logged in successfully');
         this.router.navigate(['/members']);
-
       },
       (error) => {
         this.alertify.error('Failed to login');
@@ -39,6 +42,9 @@ export class NavbarComponent implements OnInit {
   }
   logOut() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authService.decodedToken = null;
+    this.authService.currentUser = null;
     this.alertify.message('You are logged out');
     this.router.navigate(['/']);
   }
