@@ -27,7 +27,7 @@
 
     <div *ngIf="loggedIn()" class="btn-group ml-5" dropdown>
       <span class="mr-1">
-        <img src="{{photoUrl}}" alt="">
+        <img src="{{photoUrl || '../../assets/Default.png'}}" alt="">
       </span>&nbsp;
       <button
         id="button-basic"

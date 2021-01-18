@@ -1,7 +1,7 @@
 &nbsp;
 <div class="container mt-5">
   <div class="row">
-    <h1>{{user.knownAs}}'s Account</h1>
+    <h1>{{ user.knownAs }}'s Account</h1>
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -9,7 +9,7 @@
         <img
           class="card-img-top img-thumbnail"
           style="border-radius: 10px"
-          src="{{ user.photoUrl }}"
+          src="{{ user.photoUrl || '../../assets/Default.png' }}"
           alt="{{ user.knownAs }}"
         />
         <div class="card-body">
@@ -57,9 +57,12 @@
           </tab>
           <tab heading="Photos">
             <h4>Photos will go here</h4>
-            <div class="gallery" *ngFor="let url of imageUrls">
+            <!--<div class="gallery" *ngFor="let url of imageUrls">
               <a tabindex="1"><img src="{{url}}"></a>
-                </div>
+                </div> -->
+            <div class="gallery">
+              <img class="img" *ngFor="let url of imageUrls" src="{{ url }}" alt="" />
+            </div>
           </tab>
           <tab heading="Messages">
             <h4>Messages will go here</h4>

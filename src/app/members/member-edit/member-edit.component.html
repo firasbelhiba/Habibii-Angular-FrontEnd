@@ -17,7 +17,7 @@
         <img
           class="card-img-top img-thumbnail"
           style="border-radius: 10px"
-          src="{{ photoUrl }}"
+          src="{{ photoUrl || '../../assets/Default.png' }}"
           alt="{{ user.knownAs }}"
         />
         <div class="card-body">
