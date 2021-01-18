@@ -30,6 +30,10 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard.ts.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TimeAgoPipe } from './shared/time-ago.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
+
 
 
 export function tokenGetter() {
@@ -58,6 +62,8 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
+    PaginationModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     FileUploadModule,
