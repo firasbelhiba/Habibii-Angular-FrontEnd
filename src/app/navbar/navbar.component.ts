@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   model: any = {};
-  username: string;
+  // username: string;
   photoUrl: string;
 
   constructor(
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.username = this.authService.decodedToken?.unique_name;
+    // this.username = this.authService.decodedToken?.unique_name;
     this.authService.currentPhotoUrl.subscribe(
       (photoUrl) => (this.photoUrl = photoUrl)
     );
