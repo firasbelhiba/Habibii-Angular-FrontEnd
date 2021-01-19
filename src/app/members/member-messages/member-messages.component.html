@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="messages?.length === 0">
+      <p>Say hi , dont be shy</p>
+    </div>
+    <ul class="chat">
+      <li *ngFor="let message of messages">
+        <div *ngIf="message.senderId == recipientId">
+          <span class="chat-img float-left">
+            <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="rounded-circle">
+          </span>
+          <div class="chat-body">
+            <div class="header">
+              <strong class="primary-font">{{message.senderKnownAs}}</strong>
+              <small class="text-muted float-right">
+                <span class="fa fa-clock">{{message.messageSent | timeAgo}}</span>
+              </small>
+            </div>
+            <p>{{message.content}}</p>
+          </div>
+        </div>
+        
+
+        <div *ngIf="message.senderId != recipientId">
+          <span class="chat-img float-right">
+            <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="rounded-circle">
+          </span>
+          <div class="chat-body">
+            <div class="header">
+              <small class="text-muted float-right">
+                <span class="fa fa-clock">{{message.messageSent | timeAgo}}</span>
+                <span *ngIf="!message.isRead" class="text-danger">(unread)</span>
+                <span *ngIf="message.isRead" class="text-success">(Read {{message.dataRead | timeAgo }})</span>
+
+              </small>
+              <strong class="primary-font">{{message.senderKnownAs}}</strong>
+            
+            </div>
+            <p>{{message.content}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
