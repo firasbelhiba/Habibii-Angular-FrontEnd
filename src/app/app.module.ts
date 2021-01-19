@@ -32,6 +32,10 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { TimeAgoPipe } from './shared/time-ago.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ListsResolver } from './_resolvers/lists.resolver';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 
 
 
@@ -66,6 +70,8 @@ export function tokenGetter() {
     PaginationModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    ButtonsModule.forRoot(),
+    AlertModule.forRoot(),
     FileUploadModule,
     JwtModule.forRoot({
       config: {
@@ -83,7 +89,8 @@ export function tokenGetter() {
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
-    PreventUnsavedChanges
+    PreventUnsavedChanges,
+    ListsResolver
   ],
   bootstrap: [AppComponent],
 })
