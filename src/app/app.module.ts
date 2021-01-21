@@ -37,6 +37,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { ReversePipe } from './shared/reverse.pipe';
 
 
 
@@ -60,7 +61,8 @@ export function tokenGetter() {
     MemberEditComponent,
     PhotoEditorComponent,
     TimeAgoPipe,
-    MemberMessagesComponent
+    MemberMessagesComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

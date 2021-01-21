@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './_services/auth.service';
 import { User } from './_models/user';
+import { UserService } from './_services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ export class AppComponent implements OnInit {
   title = 'Habibii-SPA';
   jwtHelper = new JwtHelperService();
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     const token = localStorage.getItem('token');
@@ -24,5 +28,6 @@ export class AppComponent implements OnInit {
       this.authService.currentUser = user;
       this.authService.changeMemberPhoto(user.photoUrl);
     }
+
   }
 }
