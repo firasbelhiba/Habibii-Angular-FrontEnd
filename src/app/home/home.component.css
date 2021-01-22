@@ -1,0 +1,197 @@
+/*--------------------------------------------------------------
+# Intro Section
+--------------------------------------------------------------*/
+#intro {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+  }
+
+  @media (max-height: 500px) {
+    #intro {
+      height: 150vh;
+    }
+  }
+
+  #intro .carousel, #intro .carousel-inner, #intro .carousel-item, #intro .carousel-item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  #intro .carousel-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #intro .carousel-item::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  #intro .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 70px;
+    left: 50px;
+    right: 50px;
+  }
+
+  #intro .container {
+    text-align: center;
+  }
+
+  #intro h2 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    #intro h2 {
+      font-size: 28px;
+    }
+  }
+
+  #intro p {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    color: #fff;
+  }
+
+  @media (min-width: 1024px) {
+    #intro p {
+      width: 60%;
+    }
+  }
+
+  #intro .carousel-fade {
+    overflow: hidden;
+  }
+
+  #intro .carousel-fade .carousel-inner .carousel-item {
+    transition-property: opacity;
+  }
+
+  #intro .carousel-fade .carousel-inner .carousel-item,
+  #intro .carousel-fade .carousel-inner .active.carousel-item-left,
+  #intro .carousel-fade .carousel-inner .active.carousel-item-right {
+    opacity: 0;
+  }
+
+  #intro .carousel-fade .carousel-inner .active,
+  #intro .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+  #intro .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  #intro .carousel-fade .carousel-inner .carousel-item-next,
+  #intro .carousel-fade .carousel-inner .carousel-item-prev,
+  #intro .carousel-fade .carousel-inner .active.carousel-item-left,
+  #intro .carousel-fade .carousel-inner .active.carousel-item-right {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  #intro .carousel-control-prev, #intro .carousel-control-next {
+    width: 10%;
+  }
+
+  @media (min-width: 1024px) {
+    #intro .carousel-control-prev, #intro .carousel-control-next {
+      width: 5%;
+    }
+  }
+
+  #intro .carousel-control-next-icon, #intro .carousel-control-prev-icon {
+    background: none;
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  #intro .carousel-indicators li {
+    cursor: pointer;
+  }
+
+  #intro .btn-get-started {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #ea907a;
+  }
+
+  #intro .btn-get-started:hover {
+    background: #fff;
+    color: #ea907a;
+  }
+
+  .btn-learnmore{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #aacdbe;
+
+  }
+
+
+  .section-header h3 {
+    font-size: 32px;
+    color: #111;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .section-header h3::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+  .section-header h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #18d26e;
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+
+  .section-header p {
+    text-align: center;
+    padding-bottom: 30px;
+    color: #333;
+  }

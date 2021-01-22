@@ -27,7 +27,18 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/alertifyjs/build/alertify.min.js"
+              "node_modules/alertifyjs/build/alertify.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/isotope-layout/isotope.pkgd.min.js",
+              "node_modules/waypoints/jquery.waypoints.min.js",
+              "node_modules/owl.carousel/owl.carousel.min.js",
+              "node_modules/venobox/venobox.min.js",
+              "node_modules/jquery.easing/jquery.easing.min.js",
+              "node_modules/counterup/counterup.min.js",
+              "node_modules/aos/aos.js",
+              "src/assets/js/main.js"
+
             ]
           },
           "configurations": {
