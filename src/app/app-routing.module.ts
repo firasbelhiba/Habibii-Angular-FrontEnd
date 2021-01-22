@@ -13,6 +13,7 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard.ts.guard';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
+import { SwipeModeComponent } from './swipe-mode/swipe-mode.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
         component: ListsComponent,
         resolve: { users: ListsResolver },
       },
+      { path: 'swipe-mode', component: SwipeModeComponent },
     ],
   },
 

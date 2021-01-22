@@ -37,7 +37,8 @@
               "node_modules/jquery.easing/jquery.easing.min.js",
               "node_modules/counterup/counterup.min.js",
               "node_modules/aos/aos.js",
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+              "src/assets/js/tinder.js"
 
             ]
           },

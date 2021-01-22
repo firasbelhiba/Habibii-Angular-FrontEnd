@@ -38,6 +38,11 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { ReversePipe } from './shared/reverse.pipe';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { MentionsComponent } from './mentions/mentions.component';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
+import { SwipeModeComponent } from './swipe-mode/swipe-mode.component';
 
 
 
@@ -62,7 +67,12 @@ export function tokenGetter() {
     PhotoEditorComponent,
     TimeAgoPipe,
     MemberMessagesComponent,
-    ReversePipe
+    ReversePipe,
+    AboutUsComponent,
+    MentionsComponent,
+    ContactComponent,
+    FooterComponent,
+    SwipeModeComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/icofont/icofont.min.css';
 @import '../node_modules/ionicons/css/ionicons.min.css';
+@import '../node_modules/animate.css/animate.min.css';
 
 
 
@@ -185,31 +186,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 18px 0;
   }
 
-  #header .logo {
-    font-size: 34px;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    letter-spacing: 3px;
-    padding-left: 10px;
-    border-left: 4px solid #ea907a;
-  }
 
-  #header .logo a {
-    color: #fff;
-  }
 
-  #header .logo img {
-    max-height: 40px;
-  }
-
-  @media (max-width: 992px) {
-    #header .logo {
-      font-size: 28px;
-    }
-  }
 
   /*--------------------------------------------------------------
   # Navigation Menu

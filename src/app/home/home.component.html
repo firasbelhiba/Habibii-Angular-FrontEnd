@@ -1,4 +1,3 @@
-
 <section id="intro">
   <div class="intro-container">
     <div
@@ -11,7 +10,13 @@
       <div class="carousel-inner" role="listbox">
         <div
           class="carousel-item active"
-          style="background-image: url(assets/img/wp1.jpg)"
+          style="
+            background: url(assets/img/wp1.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+          "
         >
           <div class="carousel-container">
             <div class="container" *ngIf="!registerMode">
@@ -19,7 +24,8 @@
                 Find here your match
               </h2>
               <p class="animate__animated animate__fadeInUp">
-                Sign in if you are new and start chatting with people  like you want
+                Sign in if you are new and start chatting with people like you
+                want
               </p>
               <a
                 href="#featured-services"
@@ -47,7 +53,13 @@
 
         <div
           class="carousel-item"
-          style="background-image: url(assets/img/intro-carousel/2.jpg)"
+          style="
+            background: url(assets/img/wp2.jpg) no-repeat center center fixed;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            -o-background-size: contain;
+            background-size: cover;
+          "
         >
           <div class="carousel-container">
             <div class="container">
@@ -170,3 +182,7 @@
     </div>
   </div>
 </section>
+<app-about-us></app-about-us>
+<app-mentions></app-mentions>
+<app-contact></app-contact>
+<app-footer></app-footer>

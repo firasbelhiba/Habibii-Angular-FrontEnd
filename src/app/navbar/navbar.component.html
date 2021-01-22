@@ -2,10 +2,11 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-xl-11 d-flex align-items-center">
-        <h1 class="logo mr-auto"><a href="index.html">BizPage</a></h1>
+        <h1 class="logo mr-auto" routerLinkActive="active">
+          <img class="img"  src="assets/img/Habibii.png" alt="" routerLink="/" />
+        </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
         <nav class="nav-menu d-none d-lg-block">
           <ul *ngIf="!loggedIn()">
             <li class="active"><a href="index.html">Home</a></li>
@@ -14,38 +15,41 @@
             <li><a href="#team">Team</a></li>
             <li class="mr-5"><a href="#contact">Contact Us</a></li>
             <form
-      #loginForm="ngForm"
-      class="form-inline my-2 my-lg-0 ml-2"
-      (ngSubmit)="login()"
-      *ngIf="!loggedIn()"
-    >
-      <input
-        type="text"
-        class="form-control mr-sm-2"
-        name="username"
-        placeholder="Username"
-        required
-        [(ngModel)]="model.username"
-      />
-      <input
-        type="password"
-        class="form-control mr-sm-2"
-        name="password"
-        placeholder="Password"
-        required
-        [(ngModel)]="model.password"
-      />
-      <button
-        class="btn btn-login"
-        [disabled]="!loginForm.valid"
-        type="submit"
-      >
-        Login
-      </button>
-    </form>
+              #loginForm="ngForm"
+              class="form-inline my-2 my-lg-0 ml-2"
+              (ngSubmit)="login()"
+              *ngIf="!loggedIn()"
+            >
+              <input
+                type="text"
+                class="form-control mr-sm-2"
+                name="username"
+                placeholder="Username"
+                required
+                [(ngModel)]="model.username"
+              />
+              <input
+                type="password"
+                class="form-control mr-sm-2"
+                name="password"
+                placeholder="Password"
+                required
+                [(ngModel)]="model.password"
+              />
+              <button
+                class="btn btn-login"
+                [disabled]="!loginForm.valid"
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
           </ul>
 
           <ul *ngIf="loggedIn()">
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/swipe-mode">Swipe mode</a>
+            </li>
             <li routerLinkActive="active">
               <a routerLink="/members">Matches</a>
             </li>
@@ -55,9 +59,14 @@
             <li class="nav-item" routerLinkActive="active">
               <a routerLink="/messages">Messages</a>
             </li>
-            <div *ngIf="loggedIn()" class="btn-group ml-5" dropdown style="margin-top: 1%;">
+            <div
+              *ngIf="loggedIn()"
+              class="btn-group ml-5"
+              dropdown
+              style="margin-top: 1%"
+            >
               <span class="mr-1">
-                <img
+                <img class="pdp"
                   src="{{ photoUrl || '../../assets/Default.png' }}"
                   alt=""
                 /> </span
