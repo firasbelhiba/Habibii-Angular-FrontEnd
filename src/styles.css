@@ -13,6 +13,7 @@
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 4px;
+    background-color: white;
   }
 
   .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
@@ -66,8 +67,11 @@
 # General
 --------------------------------------------------------------*/
 body {
-  background: #fff;
-  color: #666666;
+  background: url(assets/img/theme.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;    color: #666666;
   font-family: "Open Sans", sans-serif;
 }
 

@@ -13,10 +13,7 @@ export class AppComponent implements OnInit {
   title = 'Habibii-SPA';
   jwtHelper = new JwtHelperService();
 
-  constructor(
-    private authService: AuthService,
-    private userService: UserService
-  ) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     const token = localStorage.getItem('token');
@@ -28,6 +25,5 @@ export class AppComponent implements OnInit {
       this.authService.currentUser = user;
       this.authService.changeMemberPhoto(user.photoUrl);
     }
-
   }
 }

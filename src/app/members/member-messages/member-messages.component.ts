@@ -21,16 +21,11 @@ export class MemberMessagesComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
-      //replaced function() by ()=>
       this.loadMessages();
-      console.log('done');
-      // just testing if it is working
+     // console.log('done');
     }, 3000);
-    //this.loadMessages();
-
+    // this.loadMessages();
   }
-
-
 
   loadMessages() {
     this.userService

@@ -35,14 +35,14 @@
         <div class="card-footer">
           <div class="btn-group d-flex">
             <button class="btn btn_like w-100">Like</button>&nbsp;
-            <button class="btn btn_message w-100">Message</button>
+            <button class="btn btn_message w-100" (click)="selectTab(3)">Message</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-8">
       <div class="tab-panel">
-        <tabset class="member-tabset">
+        <tabset class="member-tabset" #memberTabs>
           <tab heading="About">
             <h4>Description</h4>
             <p>{{ user.introduction }}</p>
