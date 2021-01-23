@@ -3,6 +3,7 @@ import { Message } from '../../_models/message';
 import { UserService } from '../../_services/user.service';
 import { AuthService } from '../../_services/auth.service';
 import { AlertifyService } from '../../_services/alertify.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-member-messages',
@@ -20,14 +21,40 @@ export class MemberMessagesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadMessages();
+
     setInterval(() => {
-      this.loadMessages();
-     // console.log('done');
+      this.loadMessagesForUser();
+      // console.log('done');
     }, 3000);
-    // this.loadMessages();
   }
 
   loadMessages() {
+    const currentUserId = +this.authService.decodedToken.nameid;
+    this.userService
+      .getMessageThread(this.authService.decodedToken.nameid, this.recipientId)
+      .pipe(
+        tap((messages) => {
+          for (let i = 0; i < messages.length; i++) {
+            if (
+              messages[i].isRead === false &&
+              messages[i].recipientId === currentUserId
+            ) {
+              this.userService.markAsRead(currentUserId, messages[i].id);
+            }
+          }
+        })
+      )
+      .subscribe(
+        (messages) => {
+          this.messages = messages;
+        },
+        (error) => {
+          this.alertify.error(error.error);
+        }
+      );
+  }
+  loadMessagesForUser() {
     this.userService
       .getMessageThread(this.authService.decodedToken.nameid, this.recipientId)
       .subscribe(
@@ -39,6 +66,7 @@ export class MemberMessagesComponent implements OnInit {
         }
       );
   }
+
   sendMessage() {
     this.newMessage.recipientId = this.recipientId;
     this.userService
