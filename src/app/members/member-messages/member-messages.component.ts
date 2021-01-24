@@ -51,7 +51,6 @@ export class MemberMessagesComponent implements OnInit {
         (messages) => {
           this.messages = messages;
           this.messages.reverse();
-
         },
         (error) => {
           this.alertify.error(error.error);
@@ -65,7 +64,6 @@ export class MemberMessagesComponent implements OnInit {
         (messages) => {
           this.messages = messages;
           this.messages.reverse();
-
         },
         (error) => {
           this.alertify.error(error.error);
@@ -90,5 +88,8 @@ export class MemberMessagesComponent implements OnInit {
           this.alertify.error(error.error);
         }
       );
+  }
+  markAsRead() {
+    this.loadMessages();
   }
 }

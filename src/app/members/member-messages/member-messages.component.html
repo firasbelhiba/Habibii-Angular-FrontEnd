@@ -54,7 +54,7 @@
         </div>
       </li>
     </ul>
-
+  </div>
     <div class="card-footer">
       <div *ngIf="isLoading">
         <app-dotted-loading-spinner></app-dotted-loading-spinner>
@@ -70,6 +70,7 @@
             placeholder="send your message here"
             class="form-control input-sm"
             [(ngModel)]="newMessage.content"
+            (click)="markAsRead()"
             name="content"
             required
           />
@@ -81,5 +82,5 @@
         </div>
       </form>
     </div>
-  </div>
+
 </div>

@@ -3,100 +3,128 @@
     <div class="row justify-content-center">
       <div class="col-xl-11 d-flex align-items-center">
         <h1 class="logo mr-auto" routerLinkActive="active">
-          <img class="img"  src="assets/img/Habibii.png" alt="" routerLink="/" />
+          <img class="img" src="assets/img/Habibii.png" alt="" routerLink="/" />
         </h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        <nav class="nav-menu d-none d-lg-block">
-          <ul *ngIf="!loggedIn()">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#team">Team</a></li>
-            <li class="mr-5"><a href="#contact">Contact Us</a></li>
-            <div *ngIf="isLoading">
-              <app-loading-spinner></app-loading-spinner>
-            </div>
-            <form
+        <nav class="navbar navbar-expand-lg navbar-dark nav-menu">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-              #loginForm="ngForm"
-              class="form-inline my-2 my-lg-0 ml-2"
-              (ngSubmit)="login()"
-              *ngIf="!loggedIn() && !isLoading"
-            >
-              <input
-                type="text"
-                class="form-control mr-sm-2"
-                name="username"
-                placeholder="Username"
-                required
-                [(ngModel)]="model.username"
-              />
-              <input
-                type="password"
-                class="form-control mr-sm-2"
-                name="password"
-                placeholder="Password"
-                required
-                [(ngModel)]="model.password"
-              />
-              <button
-                class="btn btn-login"
-                [disabled]="!loginForm.valid"
-                type="submit"
-              >
-                Login
-              </button>
-            </form>
-          </ul>
-
-          <ul *ngIf="loggedIn()">
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/swipe-mode">Swipe mode</a>
-            </li>
-            <li routerLinkActive="active">
-              <a routerLink="/members">Matches</a>
-            </li>
-            <li routerLinkActive="active">
-              <a routerLink="/lists">Lists</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/messages">Messages</a>
-            </li>
-            <div
-              *ngIf="loggedIn()"
-              class="btn-group ml-5"
-              dropdown
-              style="margin-top: 1%"
-            >
-              <span class="mr-1">
-                <img class="pdp"
-                  src="{{ photoUrl || '../../assets/Default.png' }}"
-                  alt=""
-                /> </span
-              >&nbsp;
-              <li class="drop-down">
-                <a
-                  >Welcome {{ authService.decodedToken.unique_name | titlecase
-                  }}<span class="caret"></span
-                ></a>
-                <ul>
-                  <li>
-                    <a routerLink="/member/edit"
-                      ><i class="fa fa-user"></i>Edit</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" (click)="logOut()"
-                      ><i class="fa fa-sign-out"></i>Logout</a
-                    >
-                  </li>
-                </ul>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- if you are not logged in -->
+            <ul class="navbar-nav mr-auto" *ngIf="!loggedIn()">
+              <li class="nav-item active">
+                <a class="nav-link" href="#"
+                  >Home <span class="sr-only">(current)</span></a
+                >
               </li>
-            </div>
-          </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+              <div *ngIf="isLoading">
+                <app-loading-spinner></app-loading-spinner>
+              </div>
+              <form
+                #loginForm="ngForm"
+                class="form-inline my-2 my-lg-0 ml-2"
+                (ngSubmit)="login()"
+                *ngIf="!loggedIn() && !isLoading"
+              >
+                <input
+                  type="text"
+                  class="form-control mr-sm-2"
+                  name="username"
+                  placeholder="Username"
+                  required
+                  [(ngModel)]="model.username"
+                />
+                <input
+                  type="password"
+                  class="form-control mr-sm-2"
+                  name="password"
+                  placeholder="Password"
+                  required
+                  [(ngModel)]="model.password"
+                />
+                <button
+                  class="btn btn-login"
+                  [disabled]="!loginForm.valid"
+                  type="submit"
+                >
+                  Login
+                </button>
+              </form>
+            </ul>
+            <!-- ends here -->
+            <!-- if you are in login mode -->
+            <ul class="navbar-nav mr-auto" *ngIf="loggedIn()">
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/swipe-mode">Swipe mode</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/members">Matches</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/lists">Lists</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/messages">Messages</a>
+              </li>
+
+              <div
+                *ngIf="loggedIn()"
+                class="btn-group ml-5"
+                dropdown
+                style="margin-top: 1%"
+              >
+                <span class="mr-1">
+                  <img
+                    class="pdp"
+                    src="{{ photoUrl || '../../assets/Default.png' }}"
+                    alt=""
+                  /> </span
+                >&nbsp;
+                <li class="drop-down">
+                  <a
+                    >Welcome
+                    {{ authService.decodedToken.unique_name | titlecase
+                    }}<span class="caret"></span
+                  ></a>
+                  <ul>
+                    <li>
+                      <a routerLink="/member/edit"
+                        ><i class="fa fa-user"></i>Edit</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" (click)="logOut()"
+                        ><i class="fa fa-sign-out"></i>Logout</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+            <!-- ends here -->
+          </div>
         </nav>
-        <!-- .nav-menu -->
       </div>
     </div>
   </div>
