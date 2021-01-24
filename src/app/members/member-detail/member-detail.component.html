@@ -35,7 +35,9 @@
         <div class="card-footer">
           <div class="btn-group d-flex">
             <button class="btn btn_like w-100">Like</button>&nbsp;
-            <button class="btn btn_message w-100" (click)="selectTab(3)">Message</button>
+            <button class="btn btn_message w-100" (click)="selectTab(3)">
+              Message
+            </button>
           </div>
         </div>
       </div>
@@ -61,12 +63,13 @@
               <a tabindex="1"><img src="{{url}}"></a>
                 </div> -->
             <div class="gallery">
-              <img
-                class="img"
+              <a
+                href="{{ url }}"
                 *ngFor="let url of imageUrls"
-                src="{{ url }}"
-                alt=""
-              />
+                data-lightbox="mygallery"
+              >
+                <img class="img" src="{{ url }}" alt="" />
+              </a>
             </div>
           </tab>
           <tab heading="Messages">
@@ -77,3 +80,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+

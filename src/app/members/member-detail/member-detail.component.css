@@ -26,7 +26,7 @@
   border-radius: 20px;
 }
 
-/* .gallery{
+.gallery{
   margin: 10px 50px;
 }
 .gallery img {
@@ -39,12 +39,9 @@
   transform: scale(1.1);
 }
 
-#flex-container {
-	display: flex;
-	flex-direction: row;
-} */
 
-.gallery{
+
+/* .gallery{
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
@@ -70,5 +67,5 @@
   img{
     height: 70vh;
   }
-}
+} */
 

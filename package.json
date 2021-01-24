@@ -24,6 +24,7 @@
     "alertifyjs": "^1.13.1",
     "bootstrap": "^4.5.3",
     "font-awesome": "^4.7.0",
+    "lightbox2": "^2.11.3",
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^6.2.0",
     "ngx-gallery": "^5.10.0",
