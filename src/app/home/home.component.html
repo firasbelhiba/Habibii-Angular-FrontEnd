@@ -43,7 +43,9 @@
               <div class="row justify-content-center">
                 <div class="col-4">
                   <div class="container mt-3">
-                    <app-register></app-register>
+                    <app-register
+                      (changeStatus)="onChangeStatus()"
+                    ></app-register>
                   </div>
                 </div>
               </div>
@@ -64,24 +66,39 @@
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">
-                At vero eos et accusamus
+                Find here your match
               </h2>
               <p class="animate__animated animate__fadeInUp">
-                Nam libero tempore, cum soluta nobis est eligendi optio cumque
-                nihil impedit quo minus id quod maxime placeat facere possimus,
-                omnis voluptas assumenda est, omnis dolor repellendus.
-                Temporibus autem quibusdam et aut officiis debitis aut.
+                Sign in if you are new and start chatting with people like you
+                want
               </p>
               <a
                 href="#featured-services"
                 class="btn-get-started scrollto animate__animated animate__fadeInUp"
-                >Get Started</a
+                (click)="registerToggle()"
+                >Register</a
               >
+              <a
+                href="#featured-services"
+                class="btn-learnmore scrollto animate__animated animate__fadeInUp"
+                >Learn more</a
+              >
+            </div>
+            <div *ngIf="registerMode" class="container">
+              <div class="row justify-content-center">
+                <div class="col-4">
+                  <div class="container mt-3">
+                    <app-register
+                      (changeStatus)="onChangeStatus()"
+                    ></app-register>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div
+        <!-- <div
           class="carousel-item"
           style="background-image: url(assets/img/intro-carousel/3.jpg)"
         >
@@ -97,15 +114,30 @@
                 nesciunt omnis iste natus error sit voluptatem accusantium.
               </p>
               <a
-                href="#featured-services"
-                class="btn-get-started scrollto animate__animated animate__fadeInUp"
-                >Get Started</a
-              >
+              href="#featured-services"
+              class="btn-get-started scrollto animate__animated animate__fadeInUp"
+              (click)="registerToggle()"
+              >Register</a
+            >
+            <a
+              href="#featured-services"
+              class="btn-learnmore scrollto animate__animated animate__fadeInUp"
+              >Learn more</a
+            >
+            </div>
+            <div *ngIf="registerMode" class="container">
+              <div class="row justify-content-center">
+                <div class="col-4">
+                  <div class="container mt-3">
+                    <app-register></app-register>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div
+        <!-- <div
           class="carousel-item"
           style="background-image: url(assets/img/intro-carousel/4.jpg)"
         >
@@ -121,15 +153,30 @@
                 voluptatem. Ut enim ad minima veniam, quis nostrum.
               </p>
               <a
-                href="#featured-services"
-                class="btn-get-started scrollto animate__animated animate__fadeInUp"
-                >Get Started</a
-              >
+              href="#featured-services"
+              class="btn-get-started scrollto animate__animated animate__fadeInUp"
+              (click)="registerToggle()"
+              >Register</a
+            >
+            <a
+              href="#featured-services"
+              class="btn-learnmore scrollto animate__animated animate__fadeInUp"
+              >Learn more</a
+            >
+            </div>
+            <div *ngIf="registerMode" class="container">
+              <div class="row justify-content-center">
+                <div class="col-4">
+                  <div class="container mt-3">
+                    <app-register></app-register>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div
+        <!-- <div
           class="carousel-item"
           style="background-image: url(assets/img/intro-carousel/5.jpg)"
         >
@@ -145,13 +192,28 @@
                 nisi ut aliquip ex ea commodo consequat.
               </p>
               <a
-                href="#featured-services"
-                class="btn-get-started scrollto animate__animated animate__fadeInUp"
-                >Get Started</a
-              >
+              href="#featured-services"
+              class="btn-get-started scrollto animate__animated animate__fadeInUp"
+              (click)="registerToggle()"
+              >Register</a
+            >
+            <a
+              href="#featured-services"
+              class="btn-learnmore scrollto animate__animated animate__fadeInUp"
+              >Learn more</a
+            >
+            </div>
+            <div *ngIf="registerMode" class="container">
+              <div class="row justify-content-center">
+                <div class="col-4">
+                  <div class="container mt-3">
+                    <app-register></app-register>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
 
       <a

@@ -15,4 +15,9 @@ export class HomeComponent implements OnInit {
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
+  onChangeStatus(){
+    this.registerMode = !this.registerMode;
+    console.log('I m informed by my child');
+
+  }
 }

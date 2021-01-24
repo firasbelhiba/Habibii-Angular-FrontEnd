@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -18,7 +18,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   user: User;
   registerForm: FormGroup;
-  isLoading = false ;
+  isLoading = false;
+  @Output() changeStatus = new EventEmitter();
 
   constructor(
     private authService: AuthService,
@@ -74,32 +75,31 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if (this.registerForm.valid) {
-      this.isLoading = true ;
+      this.isLoading = true;
       this.user = Object.assign({}, this.registerForm.value);
       this.authService.register(this.user).subscribe(
         () => {
           console.log('You are registered');
           this.authService.login(this.user).subscribe(() => {
             this.router.navigate(['/members']);
-            this.isLoading = false ;
-
+            this.isLoading = false;
           });
         },
         (error) => {
           console.log('Registration Failed');
-          this.isLoading = false ;
+          this.isLoading = false;
         },
         () => {
           this.authService.login(this.user).subscribe(() => {
             this.router.navigate(['/members']);
           });
-          this.isLoading = false ;
+          this.isLoading = false;
         }
       );
     }
   }
 
   cancel() {
-    console.log('cancel');
+    this.changeStatus.emit();
   }
 }
