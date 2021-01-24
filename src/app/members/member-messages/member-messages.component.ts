@@ -14,6 +14,8 @@ export class MemberMessagesComponent implements OnInit {
   @Input() recipientId: number;
   messages: Message[];
   newMessage: any = {};
+  isLoading = false;
+
   constructor(
     private userService: UserService,
     private authService: AuthService,
@@ -48,6 +50,8 @@ export class MemberMessagesComponent implements OnInit {
       .subscribe(
         (messages) => {
           this.messages = messages;
+          this.messages.reverse();
+
         },
         (error) => {
           this.alertify.error(error.error);
@@ -60,6 +64,8 @@ export class MemberMessagesComponent implements OnInit {
       .subscribe(
         (messages) => {
           this.messages = messages;
+          this.messages.reverse();
+
         },
         (error) => {
           this.alertify.error(error.error);
@@ -68,15 +74,19 @@ export class MemberMessagesComponent implements OnInit {
   }
 
   sendMessage() {
+    this.isLoading = true;
     this.newMessage.recipientId = this.recipientId;
     this.userService
       .sendMessage(this.authService.decodedToken.nameid, this.newMessage)
       .subscribe(
         (message: Message) => {
+          this.isLoading = false;
           this.messages.unshift(message);
           this.newMessage.content = '';
         },
         (error) => {
+          this.isLoading = false;
+
           this.alertify.error(error.error);
         }
       );

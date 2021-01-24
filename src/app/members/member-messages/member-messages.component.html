@@ -17,7 +17,7 @@
             <div class="header">
               <strong class="primary-font">{{ message.senderKnownAs }}</strong>
               <small class="text-muted float-right">
-                <span class="fa fa-clock" style="color: black;">{{
+                <span class="fa fa-clock" style="color: black">{{
                   message.messageSent | timeAgo
                 }}</span>
               </small>
@@ -54,8 +54,13 @@
         </div>
       </li>
     </ul>
+
     <div class="card-footer">
+      <div *ngIf="isLoading">
+        <app-dotted-loading-spinner></app-dotted-loading-spinner>
+      </div>
       <form
+        *ngIf="!isLoading"
         #messageForm="ngForm"
         (ngSubmit)="messageForm.valid && sendMessage()"
       >
@@ -67,10 +72,11 @@
             [(ngModel)]="newMessage.content"
             name="content"
             required
-
           />
           <div class="input-group-append">
-            <button class="btn btn-primary" [disabled] = "!messageForm.valid">Send</button>
+            <button class="btn btn-primary" [disabled]="!messageForm.valid">
+              Send
+            </button>
           </div>
         </div>
       </form>

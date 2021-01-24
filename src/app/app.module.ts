@@ -43,6 +43,8 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { SwipeModeComponent } from './swipe-mode/swipe-mode.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { DottedLoadingSpinnerComponent } from './shared/dotted-loading-spinner/dotted-loading-spinner.component';
 
 
 
@@ -72,7 +74,9 @@ export function tokenGetter() {
     MentionsComponent,
     ContactComponent,
     FooterComponent,
-    SwipeModeComponent
+    SwipeModeComponent,
+    LoadingSpinnerComponent,
+    DottedLoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

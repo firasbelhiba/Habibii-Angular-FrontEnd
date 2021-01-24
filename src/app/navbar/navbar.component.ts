@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
   model: any = {};
   // username: string;
   photoUrl: string;
+  isLoading = false ;
+
 
   constructor(
     public authService: AuthService,
@@ -24,15 +26,22 @@ export class NavbarComponent implements OnInit {
     this.authService.currentPhotoUrl.subscribe(
       (photoUrl) => (this.photoUrl = photoUrl)
     );
+    this.model.username = this.model.username.toLocaleLowerCase();
   }
 
   login() {
+    this.isLoading = true ;
+    this.model.username = this.model.username.toLocaleLowerCase();
     this.authService.login(this.model).subscribe(
       (next) => {
+        this.isLoading = false ;
+
         this.alertify.success('Logged in successfully');
         this.router.navigate(['/members']);
       },
       (error) => {
+        this.isLoading = false ;
+
         this.alertify.error('Failed to login');
       }
     );

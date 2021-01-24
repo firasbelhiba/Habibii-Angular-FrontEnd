@@ -1,4 +1,7 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()">
+<div *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!isLoading">
   <h2 class="text-center">Sign Up</h2>
   <hr />
 
